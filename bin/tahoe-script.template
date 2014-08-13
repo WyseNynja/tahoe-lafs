@@ -1,7 +1,9 @@
 #!/bin/false # You must specify a python interpreter.
-import sys; assert sys.version_info < (3,), ur"Tahoe-LAFS does not run under Python 3. Please use a version of Python between 2.6 and 2.7.x inclusive."
+import sys
+assert sys.version_info < (3,), ur"Tahoe-LAFS does not run under Python 3. Please use a version of Python between 2.6 and 2.7.x inclusive."
 
-import os, subprocess
+import os
+import subprocess
 
 where = os.path.realpath(sys.argv[0])
 base = os.path.dirname(os.path.dirname(where))
@@ -96,7 +98,8 @@ if len(args) >= 1 and args[0].startswith('@'):
         prefix = []
 
     def _subst(a):
-        if a == '@tahoe': return script
+        if a == '@tahoe':
+            return script
         return a
     command = prefix + [runner] + map(_subst, args[1:])
 else:
